@@ -1,7 +1,7 @@
-import { Box, Grid } from '@mui/material';
-import ProductCard from 'components/product-card';
-import ProductService from 'services/product-service';
 import * as React from 'react';
+import { Box, Grid } from '@mui/material';
+import ProductService from 'services/product-service';
+import { ProductCard, ProductForm } from 'components';
 
 const App = () => {
   const [products, setProducts] = React.useState([]);
@@ -22,8 +22,11 @@ const App = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', py: 3 }}>
-      <Grid container spacing={3} sx={{ px: 5 }}>
+    <Box>
+      <Box>
+        <ProductForm />
+      </Box>
+      <Grid container spacing={3} sx={{ p: 5 }}>
         {products.map(({
           id,
           title,
