@@ -7,9 +7,9 @@ import {
 } from '@mui/material';
 
 const ProductForm = ({ onSubmit }) => {
-  const [title, setTitle] = React.useState([]);
-  const [price, setPrice] = React.useState([]);
-  const [img, setImg] = React.useState([]);
+  const [title, setTitle] = React.useState('');
+  const [price, setPrice] = React.useState('');
+  const [img, setImg] = React.useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,6 +35,7 @@ const ProductForm = ({ onSubmit }) => {
           label="Price €"
           fullWidth
           variant="filled"
+          type="number"
           value={price}
           onChange={(event) => setPrice(event.target.value)}
         />
@@ -46,7 +47,7 @@ const ProductForm = ({ onSubmit }) => {
           onChange={(event) => setImg(event.target.value)}
         />
       </Box>
-      <Button variant="contained" sx={{ alignSelf: 'center', mb: 2 }}>Add a product</Button>
+      <Button type="submit" variant="contained" sx={{ alignSelf: 'center', mb: 2 }}>Add a product</Button>
     </Paper>
   );
 };
