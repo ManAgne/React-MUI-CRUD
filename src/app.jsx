@@ -6,14 +6,17 @@ import { ProductCard, ProductForm } from 'components';
 const App = () => {
   const [products, setProducts] = React.useState([]);
 
-  React.useEffect(() => {
-    (async () => {
-      const fetchedProducts = await ProductService.fetchAll();
-      setProducts(fetchedProducts);
-    })();
-  }, []);
+  const fetchAllProducts = async () => {
+    const fetchedProducts = await ProductService.fetchAll();
+    setProducts(fetchedProducts);
+  };
 
-  const deleteItem = async (id) => {
+  const createProduct = async (productProps) => {
+    await ProductService.create(productProps);
+    await fetchAllProducts();
+  };
+
+  const deleteProduct = async (id) => {
     const itemDeleted = await ProductService.remove(id);
     if (itemDeleted) {
       const fetchedProducts = await ProductService.fetchAll();
@@ -21,10 +24,14 @@ const App = () => {
     }
   };
 
+  React.useEffect(() => {
+    fetchAllProducts();
+  }, []);
+
   return (
     <Box>
       <Box>
-        <ProductForm />
+        <ProductForm onSubmit={createProduct} />
       </Box>
       <Grid container spacing={3} sx={{ p: 5 }}>
         {products.map(({
@@ -39,7 +46,7 @@ const App = () => {
               title={title}
               price={price}
               img={img}
-              onDelete={() => deleteItem(id)}
+              onDelete={() => deleteProduct(id)}
             />
           </Grid>
         ))}

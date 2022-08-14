@@ -6,13 +6,23 @@ import {
   TextField,
 } from '@mui/material';
 
-const ProductForm = () => {
+const ProductForm = ({ onSubmit }) => {
   const [title, setTitle] = React.useState([]);
   const [price, setPrice] = React.useState([]);
   const [img, setImg] = React.useState([]);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    onSubmit({
+      title,
+      price: Number(price),
+      img,
+    });
+  };
+
   return (
-    <Paper component="form" sx={{ display: 'flex', flexDirection: 'column' }}>
+    <Paper component="form" sx={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
       <Box sx={{ display: 'flex', gap: 5, p: 2 }}>
         <TextField
           label="Title"
@@ -23,7 +33,7 @@ const ProductForm = () => {
         />
         <TextField
           label="Price €"
-        //   fullWidth
+          fullWidth
           variant="filled"
           value={price}
           onChange={(event) => setPrice(event.target.value)}

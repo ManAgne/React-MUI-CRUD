@@ -15,10 +15,20 @@ const formatProduct = ({
 });
 
 const fetchAll = async () => {
-  const response = await fetch(`${serverAddress}/products?_expand=category`);
+  const response = await fetch(`${serverAddress}/products`);
   const products = await response.json();
 
   return products.map(formatProduct);
+};
+
+const create = async (productProps) => {
+  await fetch('http://localhost:8000/products', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(productProps),
+  });
 };
 
 const remove = async (id) => {
@@ -32,6 +42,7 @@ const remove = async (id) => {
 const ProductService = {
   fetchAll,
   remove,
+  create,
 };
 
 export default ProductService;
