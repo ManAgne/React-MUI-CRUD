@@ -25,11 +25,14 @@ const App = () => {
     const foundProduct = products.find((x) => x.id === id);
     setProductInEdit(foundProduct);
 
-    handleModalOpen(true);
+    handleModalOpen();
   };
 
-  const updateProduct = () => {
-    alert('updatinamas produktas');
+  const updateProduct = async (productProps) => {
+    await ProductService.update(productInEdit.id, productProps);
+    await fetchAllProducts();
+
+    handleModalClose();
   };
 
   const removeProduct = async (id) => {
