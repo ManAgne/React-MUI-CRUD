@@ -7,12 +7,14 @@ import {
   Typography,
 } from '@mui/material';
 import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
+import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 
 const ProductCard = ({
   title,
   price,
   img,
   onDelete,
+  onEdit,
 }) => (
   <Card sx={{
     height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', position: 'relative',
@@ -45,6 +47,18 @@ const ProductCard = ({
     >
       <DeleteForeverTwoToneIcon sx={{ fontSize: '30px' }} />
     </IconButton>
+    <IconButton
+      sx={{
+        position: 'absolute',
+        top: 15,
+        left: 15,
+        color: 'primary.main',
+      }}
+      onClick={onEdit}
+    >
+      <EditTwoToneIcon sx={{ fontSize: '30px' }} />
+    </IconButton>
+
   </Card>
 );
 

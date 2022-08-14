@@ -6,10 +6,14 @@ import {
   TextField,
 } from '@mui/material';
 
-const ProductForm = ({ onSubmit }) => {
-  const [title, setTitle] = React.useState('');
-  const [price, setPrice] = React.useState('');
-  const [img, setImg] = React.useState('');
+const ProductForm = ({
+  onSubmit,
+  submitText,
+  initValues,
+}) => {
+  const [title, setTitle] = React.useState(initValues?.title);
+  const [price, setPrice] = React.useState(initValues?.price);
+  const [img, setImg] = React.useState(initValues?.img);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -47,7 +51,7 @@ const ProductForm = ({ onSubmit }) => {
           onChange={(event) => setImg(event.target.value)}
         />
       </Box>
-      <Button type="submit" variant="contained" sx={{ alignSelf: 'center', mb: 2 }}>Add a product</Button>
+      <Button type="submit" variant="contained" sx={{ alignSelf: 'center', mb: 2 }}>{submitText}</Button>
     </Paper>
   );
 };
