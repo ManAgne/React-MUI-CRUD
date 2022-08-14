@@ -15,7 +15,7 @@ module.exports = {
                 "extensions": [".js", ".jsx", ".ts", ".tsx"]
             }
         }
-    },
+    }, 
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
