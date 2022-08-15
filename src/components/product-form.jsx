@@ -10,6 +10,8 @@ const ProductForm = ({
   onSubmit,
   submitText,
   initValues,
+  flexDirectionValue,
+  widthValue,
 }) => {
   const [title, setTitle] = React.useState(initValues?.title);
   const [price, setPrice] = React.useState(initValues?.price);
@@ -27,7 +29,14 @@ const ProductForm = ({
 
   return (
     <Paper component="form" sx={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
-      <Box sx={{ display: 'flex', gap: 5, p: 2 }}>
+      <Box sx={{
+        display: 'flex',
+        flexDirection: flexDirectionValue,
+        width: widthValue,
+        gap: 5,
+        p: 2,
+      }}
+      >
         <TextField
           label="Title"
           fullWidth

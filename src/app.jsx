@@ -50,11 +50,21 @@ const App = () => {
   return (
     <Box>
       <Modal open={modalOpen} onClose={handleModalClose}>
-        <ProductForm
-          onSubmit={updateProduct}
-          submitText="Save and exit"
-          initValues={productInEdit}
-        />
+        <Box sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
+        >
+          <ProductForm
+            onSubmit={updateProduct}
+            submitText="Save and exit"
+            initValues={productInEdit}
+            flexDirectionValue="column"
+            widthValue="30vw"
+          />
+        </Box>
       </Modal>
 
       <Box>

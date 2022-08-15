@@ -29,7 +29,7 @@
     },
     {
       "id": "f_serum_4",
-      "title": "Repair & Restore Intensive Serum",
+      "title": "Repair & Restore Intensive",
       "description": "A potent serum that helps soothe and restore moisture. Wheatgerm helps protect the skin against environmental aggressors. Inca Inchi Oil restores moisture balance while Canola and Wild Indigo protect and soothe, helping boost skin's natural moisture barrier.",
       "categoryId": 1,
       "typeId": 2,
@@ -161,18 +161,6 @@
       "typeId": 5,
       "price": 26,
       "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12589970-7994942865240184.jpg"
-    },
-    {
-      "title": "fsdfs",
-      "price": 50,
-      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12595876-4024840383995130.jpg",
-      "id": "pTmgV5x"
-    },
-    {
-      "title": "fsdfs",
-      "price": 50,
-      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12595876-4024840383995130.jpg",
-      "id": "YFcZ5Ql"
     }
   ],
   "categories": [
@@ -185,7 +173,7 @@
       "title": "body"
     }
   ],
-  "typeIds": [
+  "types": [
     {
       "id": 1,
       "title": "moisturiser"
