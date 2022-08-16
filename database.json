@@ -161,6 +161,15 @@
       "typeId": 5,
       "price": 26,
       "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12589970-7994942865240184.jpg"
+    },
+    {
+      "title": "sdfsd",
+      "description": "sdfsdf",
+      "categoryId": 1,
+      "typeId": 3,
+      "price": 50,
+      "img": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12595886-1604954699232445.jpg",
+      "id": "JqNtXqv"
     }
   ],
   "categories": [
