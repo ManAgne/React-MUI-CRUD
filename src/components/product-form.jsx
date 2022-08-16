@@ -16,11 +16,9 @@ const ProductForm = ({
   widthValue,
 }) => {
   const [categories, setCategories] = React.useState([]);
-  const [types, setTypes] = React.useState([]);
   const [title, setTitle] = React.useState(initValues?.title);
   const [description, setDescription] = React.useState(initValues?.description);
   const [category, setCategory] = React.useState(initValues?.categoryId);
-  const [type, setType] = React.useState(initValues?.typeId);
   const [price, setPrice] = React.useState(initValues?.price);
   const [img, setImg] = React.useState(initValues?.img);
 
@@ -31,7 +29,6 @@ const ProductForm = ({
       title,
       description,
       categoryId: category,
-      typeId: type,
       price: Number(price),
       img,
     });
@@ -41,13 +38,6 @@ const ProductForm = ({
     (async () => {
       const fethedCategories = await ProductService.fetchCategories();
       setCategories(fethedCategories);
-    })();
-  }, []);
-
-  React.useEffect(() => {
-    (async () => {
-      const fethedTypes = await ProductService.fetchTypes();
-      setTypes(fethedTypes);
     })();
   }, []);
 
@@ -85,18 +75,6 @@ const ProductForm = ({
         >
           {categories.map(({ id, title: categoryTitle }) => (
             <MenuItem key={id} value={id}>{categoryTitle}</MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          label="Type"
-          fullWidth
-          select
-          variant="filled"
-          value={type}
-          onChange={(event) => setType(event.target.value)}
-        >
-          {types.map(({ id, title: typeTitle }) => (
-            <MenuItem key={id} value={id}>{typeTitle}</MenuItem>
           ))}
         </TextField>
         <TextField

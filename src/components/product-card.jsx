@@ -14,7 +14,6 @@ const ProductCard = ({
   title,
   description,
   category,
-  type,
   price,
   img,
   onDelete,
@@ -53,8 +52,6 @@ const ProductCard = ({
         }}
       >
         {category}
-        {' '}
-        {type}
       </Typography>
       <Typography
         variant="h5"

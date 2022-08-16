@@ -72,20 +72,12 @@ const fetchCategories = async () => {
   return categories;
 };
 
-const fetchTypes = async () => {
-  const response = await fetch(`${serverAddress}/types`);
-  const types = await response.json();
-
-  return types;
-};
-
 const ProductService = {
   fetchAll,
   create,
   update,
   remove,
   fetchCategories,
-  fetchTypes,
 };
 
 export default ProductService;

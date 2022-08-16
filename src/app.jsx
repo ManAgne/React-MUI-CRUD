@@ -79,7 +79,6 @@ const App = () => {
           title,
           description,
           category,
-          type,
           price,
           img,
         }) => (
@@ -89,7 +88,6 @@ const App = () => {
               title={title}
               description={description}
               category={category}
-              type={type}
               price={price}
               img={img}
               onDelete={() => removeProduct(id)}
