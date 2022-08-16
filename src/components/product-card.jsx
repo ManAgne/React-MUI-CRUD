@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  Box,
   Card,
   CardContent,
   CardMedia,
@@ -44,23 +45,23 @@ const ProductCard = ({
       >
         {description}
       </TypographyLimited>
-      <Typography
-        variant="h6"
-        component="div"
-        sx={{
-          fontWeight: 'bold',
-        }}
-      >
-        {category}
-      </Typography>
-      <Typography
-        variant="h5"
-        component="div"
-        color="text.secondary"
-        textAlign="center"
-      >
-        {`${price} €`}
-      </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Typography
+          variant="h6"
+          component="div"
+          color="text.secondary"
+        >
+          {category}
+        </Typography>
+        <Typography
+          variant="h5"
+          component="div"
+          color="text.secondary"
+          textAlign="center"
+        >
+          {`${price} €`}
+        </Typography>
+      </Box>
     </CardContent>
     <IconButton
       sx={{

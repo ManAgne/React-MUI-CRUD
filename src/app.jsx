@@ -60,6 +60,7 @@ const App = () => {
           <ProductForm
             onSubmit={updateProduct}
             submitText="Save and exit"
+            formTitle="Edit product"
             initValues={productInEdit}
             flexDirectionValue="column"
             widthValue="30vw"
@@ -71,6 +72,7 @@ const App = () => {
         <ProductForm
           onSubmit={createProduct}
           submitText="Add new Product"
+          formTitle="New product creation"
         />
       </Box>
       <Grid container spacing={3} sx={{ p: 5 }}>

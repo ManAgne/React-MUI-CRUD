@@ -5,13 +5,15 @@ import {
   MenuItem,
   Paper,
   TextField,
+  Typography,
 } from '@mui/material';
 import ProductService from 'services/product-service';
 
 const ProductForm = ({
   onSubmit,
-  submitText,
   initValues,
+  formTitle,
+  submitText,
   flexDirectionValue,
   widthValue,
 }) => {
@@ -48,6 +50,7 @@ const ProductForm = ({
 
   return (
     <Paper component="form" sx={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
+      <Typography variant="h5" sx={{ textAlign: 'center', m: 1 }}>{formTitle}</Typography>
       <Box sx={{
         display: 'flex',
         flexDirection: flexDirectionValue,
