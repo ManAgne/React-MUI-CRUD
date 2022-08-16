@@ -77,6 +77,9 @@ const App = () => {
         {products.map(({
           id,
           title,
+          description,
+          category,
+          type,
           price,
           img,
         }) => (
@@ -84,6 +87,9 @@ const App = () => {
             <ProductCard
               id={id}
               title={title}
+              description={description}
+              category={category}
+              type={type}
               price={price}
               img={img}
               onDelete={() => removeProduct(id)}

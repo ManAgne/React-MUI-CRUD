@@ -8,9 +8,13 @@ import {
 } from '@mui/material';
 import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
+import TypographyLimited from './typography-limited';
 
 const ProductCard = ({
   title,
+  description,
+  category,
+  type,
   price,
   img,
   onDelete,
@@ -27,13 +31,38 @@ const ProductCard = ({
       alt={title}
     />
     <CardContent>
-      <Typography gutterBottom variant="h6" component="div" sx={{ textAlign: 'center', minHeight: '64px' }}>
+      <Typography
+        gutterBottom
+        variant="h6"
+        component="div"
+        sx={{ textAlign: 'center', minHeight: '64px' }}
+      >
         {title}
       </Typography>
-      <Typography variant="h5" component="div" color="text.secondary" textAlign="center">
-        {price}
+      <TypographyLimited
+        variant="body2"
+        color="text.secondary"
+      >
+        {description}
+      </TypographyLimited>
+      <Typography
+        variant="h6"
+        component="div"
+        sx={{
+          fontWeight: 'bold',
+        }}
+      >
+        {category}
         {' '}
-        €
+        {type}
+      </Typography>
+      <Typography
+        variant="h5"
+        component="div"
+        color="text.secondary"
+        textAlign="center"
+      >
+        {`${price} €`}
       </Typography>
     </CardContent>
     <IconButton
