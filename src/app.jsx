@@ -63,7 +63,7 @@ const App = () => {
             formTitle="Edit product"
             initValues={productInEdit}
             flexDirectionValue="column"
-            widthValue="30vw"
+            widthValue="50vw"
           />
         </Box>
       </Modal>
@@ -84,7 +84,7 @@ const App = () => {
           price,
           img,
         }) => (
-          <Grid key={id} item xs={6} md={4} lg={2.4} sx={{ gridAutoRows: 'max-content' }}>
+          <Grid key={id} item xs={6} sm={4} md={3} lg={2.4} xl={2} sx={{ gridAutoRows: 'max-content' }}>
             <ProductCard
               id={id}
               title={title}

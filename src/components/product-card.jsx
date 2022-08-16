@@ -21,7 +21,11 @@ const ProductCard = ({
   onEdit,
 }) => (
   <Card sx={{
-    height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', position: 'relative',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    position: 'relative',
   }}
   >
     <CardMedia
@@ -40,6 +44,7 @@ const ProductCard = ({
         {title}
       </Typography>
       <TypographyLimited
+        gutterBottom
         variant="body2"
         color="text.secondary"
       >
