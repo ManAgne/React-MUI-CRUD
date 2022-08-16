@@ -69,6 +69,7 @@ const ProductForm = ({
         >
           <TextField
             label="Title"
+            name="title"
             fullWidth
             variant="filled"
             size="small"
@@ -78,6 +79,7 @@ const ProductForm = ({
           />
           <TextField
             label="Category"
+            name="category"
             fullWidth
             select
             variant="filled"
@@ -101,6 +103,7 @@ const ProductForm = ({
         >
           <TextField
             label="Price €"
+            name="price"
             fullWidth
             variant="filled"
             type="number"
@@ -111,6 +114,7 @@ const ProductForm = ({
           />
           <TextField
             label="Image link"
+            name="imageLink"
             fullWidth
             variant="filled"
             size="small"
@@ -121,6 +125,7 @@ const ProductForm = ({
         </Box>
         <TextField
           label="Description"
+          name="description"
           fullWidth
           variant="filled"
           required
