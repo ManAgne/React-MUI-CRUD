@@ -16,11 +16,11 @@ const ProductForm = ({
   widthValue,
 }) => {
   const [categories, setCategories] = React.useState([]);
-  const [title, setTitle] = React.useState(initValues?.title);
-  const [description, setDescription] = React.useState(initValues?.description);
-  const [category, setCategory] = React.useState(initValues?.categoryId);
-  const [price, setPrice] = React.useState(initValues?.price);
-  const [img, setImg] = React.useState(initValues?.img);
+  const [title, setTitle] = React.useState(initValues?.title ?? '');
+  const [category, setCategory] = React.useState(initValues?.categoryId ?? '');
+  const [price, setPrice] = React.useState(initValues?.price ?? '');
+  const [description, setDescription] = React.useState(initValues?.description ?? '');
+  const [img, setImg] = React.useState(initValues?.img ?? '');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -32,6 +32,11 @@ const ProductForm = ({
       price: Number(price),
       img,
     });
+    setTitle('');
+    setDescription('');
+    setCategory('');
+    setPrice('');
+    setImg('');
   };
 
   React.useEffect(() => {
@@ -51,46 +56,75 @@ const ProductForm = ({
         p: 2,
       }}
       >
-        <TextField
-          label="Title"
-          fullWidth
-          variant="filled"
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}
-        />
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          flexDirection: 'column',
+          gap: 5,
+          width: '100%',
+        }}
+        >
+          <TextField
+            label="Title"
+            fullWidth
+            variant="filled"
+            size="small"
+            required
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+          />
+          <TextField
+            label="Category"
+            fullWidth
+            select
+            variant="filled"
+            size="small"
+            required
+            value={category}
+            onChange={(event) => setCategory(event.target.value)}
+          >
+            {categories.map(({ id, title: categoryTitle }) => (
+              <MenuItem key={id} value={id}>{categoryTitle}</MenuItem>
+            ))}
+          </TextField>
+        </Box>
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          flexDirection: 'column',
+          gap: 5,
+          width: '100%',
+        }}
+        >
+          <TextField
+            label="Price €"
+            fullWidth
+            variant="filled"
+            type="number"
+            size="small"
+            required
+            value={price}
+            onChange={(event) => setPrice(event.target.value)}
+          />
+          <TextField
+            label="Image link"
+            fullWidth
+            variant="filled"
+            size="small"
+            required
+            value={img}
+            onChange={(event) => setImg(event.target.value)}
+          />
+        </Box>
         <TextField
           label="Description"
           fullWidth
           variant="filled"
+          required
+          multiline
+          rows={5}
           value={description}
           onChange={(event) => setDescription(event.target.value)}
-        />
-        <TextField
-          label="Category"
-          fullWidth
-          select
-          variant="filled"
-          value={category}
-          onChange={(event) => setCategory(event.target.value)}
-        >
-          {categories.map(({ id, title: categoryTitle }) => (
-            <MenuItem key={id} value={id}>{categoryTitle}</MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          label="Price €"
-          fullWidth
-          variant="filled"
-          type="number"
-          value={price}
-          onChange={(event) => setPrice(event.target.value)}
-        />
-        <TextField
-          label="Image link"
-          fullWidth
-          variant="filled"
-          value={img}
-          onChange={(event) => setImg(event.target.value)}
         />
       </Box>
       <Button type="submit" variant="contained" sx={{ alignSelf: 'center', mb: 2 }}>{submitText}</Button>

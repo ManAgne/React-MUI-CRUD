@@ -8,8 +8,6 @@ const formatProduct = ({
   img,
   categoryId,
   category,
-  typeID,
-  type,
 }) => ({
   id,
   title,
@@ -18,12 +16,10 @@ const formatProduct = ({
   img,
   categoryId,
   category: category.title,
-  typeID,
-  type: type.title,
 });
 
 const fetchAll = async () => {
-  const response = await fetch(`${serverAddress}/products?_expand=category&_expand=type`);
+  const response = await fetch(`${serverAddress}/products?_expand=category`);
   const products = await response.json();
 
   return products.map(formatProduct);
